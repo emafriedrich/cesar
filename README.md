@@ -48,3 +48,11 @@ more examples in test folder
 ### Requirements
 
 Cesar require java >= 7
+
+### datasource: :sql
+
+Only support for postgresql. If you wont support for other DBMS, open a issue. 
+
+
+
+
