@@ -1,11 +1,9 @@
-require 'lib/cesar'
-
 Gem::Specification.new do |s| 
  s.name = 'cesar' 
  s.version = '0.0.0' 
- s.date = '2015-06-23' 
- s.summary = 'Integrate JasperReport in ruby apps'
- s.description = 'JasperReport for ruby enviroments'
+ s.date = '2015-07-03' 
+ s.summary = 'Integrate JasperReport in ruby MRI apps'
+ s.description = 'JasperReport for ruby MRI enviroments'
  s.authors = ["Emanuel Friedrich"] 
  s.email = 'aemanuelfriedrich@gmail.com' 
   s.files = Dir[
@@ -13,7 +11,8 @@ Gem::Specification.new do |s|
   #  "AUTHORS",
     "README.md",
     "lib/**/*.rb",
-    "lib/utils/**",
+    "utils/*",
+    "utils/lib/*",
     "*.gemspec",
     "test/**/*.rb", 
     "makefile"
