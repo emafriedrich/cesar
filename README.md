@@ -43,3 +43,8 @@ Generate excel report
                          export_path: 'excel_file'
 
 more examples in test folder
+
+
+### Requirements
+
+Cesar require java >= 7
