@@ -22,7 +22,8 @@ With the next options
     :datasource => :xml || :csv || :sql
     :datasource_path => String # with path of datasource (csv, xml, or properties file)
     :export_path => String # with path for export the report (Rails.root + "/tmp/pdf.pdf" for example)
-    :print => true # for print the report on default printer 
+    :print => true # for print the report on default printer
+    :child_node => String #examples below
 
 pdf_export, excel_export and print methods are short way for pdf export, excel export and print reports, respectly
 
@@ -44,7 +45,16 @@ Generate excel report
 
 more examples in test folder
 
+### :child_node (only xml datasources)
 
+If your structure is similar to
+
+    <a>
+      <b></b>
+      <b></b>
+    </a>
+    
+child_node must be equal to "b" to indicate to Cesar that you want export or print 1 report with 2 instance of "b". In other words, 1 report with 2 reports in 1 print job
 ### Requirements
 
 Cesar require java >= 7
