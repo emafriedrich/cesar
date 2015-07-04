@@ -27,6 +27,8 @@ With the next options
 
 pdf_export, excel_export and print methods are short way for pdf export, excel export and print reports, respectly
 
+The report_path **should not have** the .jasper extension.
+
 ## Examples
 
 Generate pdf report 
