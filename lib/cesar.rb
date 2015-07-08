@@ -1,6 +1,6 @@
 module Cesar
 
-  VERSION = '0.0.0'
+  VERSION = '0.0.1'
 
   DEFAULT_DATASOURCE        = :sql
   VALID_DATASOURCE_OPTIONS  = [:sql, :xml, :csv]
@@ -35,7 +35,8 @@ module Cesar
     return_string =  export_to(options[:export_to])
     return_string << export_path(options[:export_path])
     return_string << datasource_path(options[:datasource_path])
-    return_string << datasource(options[:datasource])
+    datasource_string = datasource(options[:datasource])
+    return_string << datasource_string
     
     if options[:print]
       return_string << ' pred '
@@ -46,8 +47,17 @@ module Cesar
     end
 
     if options[:id]
-      unless options[:datasource].eql? :sql raise ArgumentError, ':id is only for sql datasource'
-
+      if !datasource_string.eql?('sql')
+        raise ArgumentError, ':id option is only for sql datasource'
+      end 
+      file_string = File.read(options[:datasource_path])
+      pattern = /ID=\d*/
+      if file_string =~ pattern
+        file_string.gsub!(/ID=\d*/, "ID=#{options[:id].to_i}") 
+      else 
+        file_string << "\nID=#{options[:id].to_i}"
+      end
+      File.open(options[:datasource_path], 'w') {|file| file.puts file_string }
     end
     return_string
   end
