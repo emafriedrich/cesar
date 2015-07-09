@@ -53,7 +53,7 @@ module Cesar
       file_string = File.read(options[:datasource_path])
       pattern = /ID=\d*/
       if file_string =~ pattern
-        file_string.gsub!(/ID=\d*/, "ID=#{options[:id].to_i}") 
+        file_string.gsub!(pattern, "ID=#{options[:id].to_i}") 
       else 
         file_string << "\nID=#{options[:id].to_i}"
       end
